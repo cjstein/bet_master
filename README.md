@@ -1,16 +1,25 @@
-# bet_master
+# Bet Master
 
-create and consolidate bets
+Create and consolidate bets
 
 [![Built with Cookiecutter Django](https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter)](https://github.com/cookiecutter/cookiecutter-django/)
 [![Black code style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
 License: MIT
-
-## Settings
-
-Moved to [settings](http://cookiecutter-django.readthedocs.io/en/latest/settings.html).
-
+## Initial Setup
+1. Download the code
+2. Create a virtual environment `python -m venv venv`
+    - If you name it venv, it will already be in the gitignore
+3. Activate the new environment
+4. Download requirements: `pip install -r requirements/local.txt`
+5. Download Version 15 of [Postgres](https://www.postgresql.org/download/windows/)
+    - Create a DB, an admin user and password.  Save this to put in your Environment Variable file next.
+6. Copy the `template.env` file and name it just `.env`
+    - Update the variables to match your local setup
+    - you will have to add the environment variable `DJANGO_READ_DOT_ENV_FILE` to you systems Environment Variables and set it to True
+7. Run `python manage.py migrate`
+8. Run `python manage.py runserver`
+    - To ensure the initial setup is correct
 ## Basic Commands
 
 ### Setting Up Your Users
@@ -40,11 +49,3 @@ To run the tests, check your test coverage, and generate an HTML coverage report
 #### Running tests with pytest
 
     $ pytest
-
-### Live reloading and Sass CSS compilation
-
-Moved to [Live reloading and SASS compilation](https://cookiecutter-django.readthedocs.io/en/latest/developing-locally.html#sass-compilation-live-reloading).
-
-## Deployment
-
-The following details how to deploy this application.
