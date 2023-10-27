@@ -1,5 +1,5 @@
 from django.contrib.auth.models import AbstractUser
-from django.db.models import CharField, EmailField
+from django.db.models import CharField, DecimalField, EmailField
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
@@ -19,6 +19,7 @@ class User(AbstractUser):
     last_name = None  # type: ignore
     email = EmailField(_("email address"), unique=True)
     username = None  # type: ignore
+    balance = DecimalField(max_digits=15, decimal_places=2, default=0)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
